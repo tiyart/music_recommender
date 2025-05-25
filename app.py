@@ -83,7 +83,7 @@ artist_groups = [
 st.markdown("""
     <style>
     div.stButton > button:first-child {
-        background-color: white;
+        background-color: yellow;
         color: red;
         border: 2px solid red;
     }
