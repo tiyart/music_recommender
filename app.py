@@ -10,12 +10,36 @@ le_mbti = joblib.load("le_mbti.pkl")
 
 st.markdown("""
 <style>
+/* Remove form outline and padding */
+form[role="form"] {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Remove padding/margin inside form container */
+form[role="form"] > div {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Reduce gaps between widgets */
 .block-container > div {
     margin-bottom: 6px;
     padding-bottom: 0;
 }
+
 .stSelectbox, .stRadio, .stButton {
     margin-bottom: 6px;
+    padding: 0 !important;
+}
+
+/* Remove input internal padding */
+div.stSelectbox > div > div, 
+div.stRadio > div > div,
+div.stButton > button {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 </style>
 """, unsafe_allow_html=True)
