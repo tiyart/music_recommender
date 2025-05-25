@@ -9,11 +9,11 @@ le_artist = joblib.load("le_artist.pkl")
 le_mbti = joblib.load("le_mbti.pkl")
 
 st.title("🎧 Music Genre Recommender")
-st.markdown("Answer a few personality questions and we’ll recommend a music genre and some artists you might love!")
+st.write("Answer a few personality questions and we’ll recommend a music genre and some artists you might love!")
 
 st.subheader("Tell us about yourself")
 
-st.markdown("<div style='font-size:15px;'>When it comes to socialising:</div>", unsafe_allow_html=True)
+st.write("**When it comes to socialising:**")
 social = st.selectbox(
     "",
     [
@@ -21,7 +21,8 @@ social = st.selectbox(
         "I prefer smaller groups or alone time (Introversion)"
     ]
 )
-st.markdown("<div style='font-size:15px;'>When processing information:</div>", unsafe_allow_html=True)
+
+st.write("**When processing information:**")
 info = st.selectbox(
     "",
     [
@@ -29,7 +30,8 @@ info = st.selectbox(
         "I focus on facts, details, and reality (Sensing)"
     ]
 )
-st.markdown("<div style='font-size:15px;'>When making decisions:</div>", unsafe_allow_html=True)
+
+st.write("**When making decisions:**")
 decision = st.selectbox(
     "",
     [
@@ -37,7 +39,8 @@ decision = st.selectbox(
         "I consider emotions and values (Feeling)"
     ]
 )
-st.markdown("<div style='font-size:15px;'>When planning my day or tasks:</div>", unsafe_allow_html=True)
+
+st.write("**When planning my day or tasks:**")
 planning = st.selectbox(
     "",
     [
@@ -46,7 +49,7 @@ planning = st.selectbox(
     ]
 )
 
-st.markdown("<div style='font-size: 15px; margin-bottom: -25px;'>Preferred music tempo:</div>", unsafe_allow_html=True)
+st.write("**Preferred music tempo:**")
 tempo = st.radio(
     "",
     ["Slow/Calm", "Medium", "Fast/Energetic"],
@@ -91,19 +94,13 @@ if st.button("🎶 Recommend"):
     genre_input = pd.DataFrame([[mbti_encoded, tempo_ordinal]], columns=["MBTI_encoded", "Tempo_Ordinal"])
     genre_pred_encoded = mbti_genre_model.predict(genre_input)[0]
 
-    if genre_pred_encoded < len(genre_groups):
-        predicted_genre = genre_groups[genre_pred_encoded]
-    else:
-        predicted_genre = "Unknown Genre"
-
+    predicted_genre = genre_groups[genre_pred_encoded] if genre_pred_encoded < len(genre_groups) else "Unknown Genre"
     genre_encoded = le_genre.transform([predicted_genre])[0] if predicted_genre != "Unknown Genre" else 0
+
     artist_input = pd.DataFrame([[genre_encoded, tempo_ordinal]], columns=["Genre_encoded", "Tempo_Ordinal"])
     artist_pred_encoded = artist_model.predict(artist_input)[0]
 
-    if artist_pred_encoded < len(artist_groups):
-        predicted_artist_group = artist_groups[artist_pred_encoded]
-    else:
-        predicted_artist_group = "Unknown Artist Group"
+    predicted_artist_group = artist_groups[artist_pred_encoded] if artist_pred_encoded < len(artist_groups) else "Unknown Artist Group"
 
     st.success(f"✨ As an **{user_mbti}**, you're matched with **{predicted_genre}** music!")
     st.info(f"🎤 We think you'll enjoy artists such as **{predicted_artist_group}**.")
