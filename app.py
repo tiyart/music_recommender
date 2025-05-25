@@ -80,6 +80,15 @@ artist_groups = [
     "Taylor Swift, Beyonce, Michael Jackson, Sabrina Carpenter" 
 ]
 
+st.markdown("""
+    <style>
+    div.stButton > button:first-child {
+        background-color: white;
+        color: red;
+        border: 2px solid red;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 if st.button("🎶 Recommend"):
 
