@@ -13,7 +13,17 @@ st.markdown("Answer a few personality questions and we’ll recommend a music ge
 
 st.header("Tell us about yourself")
 
-st.markdown("<div style='font-size:15px;'>When it comes to socialising:</div>", unsafe_allow_html=True)
+st.markdown("""
+    <style>
+    .small-heading {
+        font-size: 15px;
+        font-weight: normal;
+        margin-bottom: -10px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown("<div class='small-heading'>When it comes to socialising:</div>", unsafe_allow_html=True)
 social = st.selectbox(
     "",
     [
@@ -21,7 +31,7 @@ social = st.selectbox(
         "I prefer smaller groups or alone time (Introversion)"
     ]
 )
-st.markdown("<div style='font-size:15px;'>When processing information:</div>", unsafe_allow_html=True)
+st.markdown("<div class='small-heading'>When processing information:</div>", unsafe_allow_html=True)
 info = st.selectbox(
     "",
     [
@@ -29,7 +39,7 @@ info = st.selectbox(
         "I focus on facts, details, and reality (Sensing)"
     ]
 )
-st.markdown("<div style='font-size:15px;'>When making decisions:</div>", unsafe_allow_html=True)
+st.markdown("<div class='small-heading'>When making decisions:</div>", unsafe_allow_html=True)
 decision = st.selectbox(
     "",
     [
@@ -37,7 +47,7 @@ decision = st.selectbox(
         "I consider emotions and values (Feeling)"
     ]
 )
-st.markdown("<div style='font-size:15px;'>When planning my day or tasks:</div>", unsafe_allow_html=True)
+st.markdown("<div class='small-heading'>When planning my day or tasks:</div>", unsafe_allow_html=True)
 planning = st.selectbox(
     "",
     [
@@ -46,7 +56,7 @@ planning = st.selectbox(
     ]
 )
 
-st.markdown("<div style='font-size: 15px; margin-bottom: -25px;'>Preferred music tempo:</div>", unsafe_allow_html=True)
+st.markdown("<div class='small-heading'>Preferred music tempo:</div>", unsafe_allow_html=True)
 tempo = st.radio(
     "",
     ["Slow/Calm", "Medium", "Fast/Energetic"],
@@ -73,7 +83,6 @@ genre_groups = [
     "Rap",       
     "Rock"  
 ]
-
 
 artist_groups = [
     "ASAP Rocky, Travis Scott, Drake, Kendrick Lamar",  
