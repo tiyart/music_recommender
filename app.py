@@ -25,6 +25,8 @@ st.markdown("""
 st.title("🎧 Music Genre Recommender")
 st.markdown("Answer a few personality questions and we’ll recommend a music genre and some artists you might love!")
 
+st.subheader("Tell us about yourself")
+
 def determine_mbti(social, info, decision, planning):
     mbti = ""
     mbti += "E" if "Extraversion" in social else "I"
@@ -54,14 +56,14 @@ social = st.selectbox(
     "When it comes to socialising:",
     [
         "I enjoy large social gatherings and meeting new people (Extraversion)",
-        "I prefer smaller groups or alone time (Introversion)"
+        "I prefer spending time alone or with a small group of close friends (Introversion)"
     ]
 )
 info = st.selectbox(
     "When processing information:",
     [
         "I focus on patterns, ideas, and possibilities (Intuition)",
-        "I focus on facts, details, and reality (Sensing)"
+        "I trust facts, data, and real experiences (Sensing)"
     ]
 )
 decision = st.selectbox(
@@ -75,7 +77,7 @@ planning = st.selectbox(
     "When planning my day or tasks:",
     [
         "I like structure, planning, and sticking to schedules (Judging)",
-        "I prefer flexibility and spontaneity (Perceiving)"
+        "I prefer being spontaneous and flexible (Perceiving)"
     ]
 )
 tempo = st.radio(
