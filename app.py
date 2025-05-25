@@ -9,9 +9,9 @@ le_artist = joblib.load("le_artist.pkl")
 le_mbti = joblib.load("le_mbti.pkl")
 
 st.title("🎧 Music Genre Recommender")
-st.markdown("Answer some personality questions and we’ll recommend a music genre and some artists you might love!")
+st.markdown("Answer a few personality questions and we’ll recommend a music genre and some artists you might love!")
 
-st.header("Tell us about yourself")
+
 
 st.markdown("<div style='font-size:15px;'>When it comes to socialising:</div>", unsafe_allow_html=True)
 social = st.selectbox(
