@@ -105,6 +105,6 @@ if submit:
     predicted_artist_group = artist_groups[artist_pred_encoded] if artist_pred_encoded < len(artist_groups) else "Unknown Artist Group"
 
     st.success(f"✨ As an **{user_mbti}**, you're matched with **{predicted_genre}** music!")
-    st.info(f"🎤 We think you'll enjoy artists such as **{predicted_artist_group}**.")
+    st.warning(f"🎤 We think you'll enjoy artists such as **{predicted_artist_group}**.")
 else:
     st.info("Click 'Recommend' to get your personalised music suggestion :)")
