@@ -74,7 +74,6 @@ genre_groups = [
     "Rock"  
 ]
 
-
 artist_groups = [
     "ASAP Rocky, Travis Scott, Drake, Kendrick Lamar",  
     "Arctic Monkeys, The Smiths, The Pixies, Florence & The Machine",  
@@ -84,15 +83,6 @@ artist_groups = [
     "Shiloh Dynasty, Sagun, Joji, Yot Club",  
     "Taylor Swift, Beyonce, Michael Jackson, Sabrina Carpenter" 
 ]
-
-st.markdown("""
-    <style>
-    div.stButton > button:first-child {
-        color: #FF4B4B;
-        border: 1px solid #FF4B4B;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 if st.button("🎶 Recommend"):
 
@@ -116,8 +106,6 @@ if st.button("🎶 Recommend"):
         predicted_artist_group = "Unknown Artist Group"
 
     st.success(f"✨ As an **{user_mbti}**, you're matched with **{predicted_genre}** music!")
-    st.warning(f"🎤 We think you'll enjoy artists such as **{predicted_artist_group}**.")
+    st.info(f"🎤 We think you'll enjoy artists such as **{predicted_artist_group}**.")
 else:
-  st.info("Click 'Recommend' to get your personalized music suggestion")
-
-
+    st.info("Click 'Recommend' to get your personalized music suggestion :)")
