@@ -118,7 +118,7 @@ if st.button("🎶 Recommend"):
     st.success(f"✨ As an **{user_mbti}**, you're matched with **{predicted_genre}** music!")
     st.info(f"🎤 We think you'll enjoy artists such as **{predicted_artist_group}**.")
 else:
-st.markdown("""
+    st.markdown("""
     <div style="
         background-color: #fff9c4;  /* light yellow */
         padding: 10px;
