@@ -84,7 +84,7 @@ st.markdown("""
     <style>
     div.stButton > button:first-child {
         color: #FF4B4B;
-        border: 2px solid #FF4B4B;
+        border: 1px solid #FF4B4B;
     }
     </style>
 """, unsafe_allow_html=True)
