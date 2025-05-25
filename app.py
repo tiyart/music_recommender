@@ -118,6 +118,6 @@ if st.button("🎶 Recommend"):
     st.success(f"✨ As an **{user_mbti}**, you're matched with **{predicted_genre}** music!")
     st.info(f"🎤 We think you'll enjoy artists such as **{predicted_artist_group}**.")
 else:
-  st.warning("Click 'Recommend' to get your personalized music suggestion!")
+  st.error("Click 'Recommend' to get your personalized music suggestion")
 
 
