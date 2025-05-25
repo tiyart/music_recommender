@@ -83,8 +83,8 @@ artist_groups = [
 st.markdown("""
     <style>
     div.stButton > button:first-child {
-        color: red;
-        border: 2px solid red;
+        color: #FF4B4B;
+        border: 2px solid #FF4B4B;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -118,7 +118,7 @@ if st.button("🎶 Recommend"):
         predicted_artist_group = "Unknown Artist Group" 
     
 
-    st.success(f"""✨ As an {user_mbti}, you're matched with **{predicted_genre}** music! 
-    \n 🎤 We think you'll enjoy artists such as {predicted_artist_group}.""")
+    st.success(f"✨ As an **{user_mbti}**, you're matched with **{predicted_genre}** music! 
+    \n 🎤 We think you'll enjoy artists such as **{predicted_artist_group}**.")
 else:
-    st.info("Click 'Recommend' to get your personalised music suggestion!")
+    st.info("Click 'Recommend' to get your personalised music suggestions")
