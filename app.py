@@ -10,17 +10,18 @@ le_mbti = joblib.load("le_mbti.pkl")
 
 st.markdown("""
 <style>
-/* Remove padding and outline */
+/* Only target form elements */
 [data-testid="stForm"] {
-    padding: 0 !important;
     border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: transparent !important;
     box-shadow: none !important;
 }
-.stSelectbox, .stRadio, .stButton {
-    margin-bottom: 0px !important;
-}
-.block-container {
-    padding: 0 !important;
+[data-testid="stForm"] .stSelectbox,
+[data-testid="stForm"] .stRadio,
+[data-testid="stForm"] .stButton {
+    margin-bottom: 0 !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -92,6 +93,7 @@ with st.form("music_form"):
         ["Slow/Calm", "Medium", "Fast/Energetic"],
         index=1
     )
+
     submit = st.form_submit_button("🎶 Recommend")
 
 if submit:
