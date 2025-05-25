@@ -13,42 +13,43 @@ st.markdown("Answer a few personality questions and we’ll recommend a music ge
 
 st.header("Tell us about yourself")
 
+st.markdown("<div style='font-size:16px; font-weight:bold;'>When it comes to socialising:</div>", unsafe_allow_html=True)
 social = st.selectbox(
-    "When it comes to socialising:",
+    "",
     [
         "I enjoy large social gatherings and meeting new people (Extraversion)",
         "I prefer smaller groups or alone time (Introversion)"
     ]
 )
+st.markdown("<div style='font-size:16px; font-weight:bold;'>When processing information::</div>", unsafe_allow_html=True)
 info = st.selectbox(
-    "When processing information:",
+    "",
     [
         "I focus on patterns, ideas, and possibilities (Intuition)",
         "I focus on facts, details, and reality (Sensing)"
     ]
 )
+st.markdown("<div style='font-size:16px; font-weight:bold;'>When making decisions</div>", unsafe_allow_html=True)
 decision = st.selectbox(
-    "When making decisions:",
+    "",
     [
         "I prioritise logic and objectivity (Thinking)",
         "I consider emotions and values (Feeling)"
     ]
 )
+st.markdown("<div style='font-size:16px; font-weight:bold;'>When planning my day or tasks:</div>", unsafe_allow_html=True)
 planning = st.selectbox(
-    "When planning my day or tasks:",
+    "",
     [
         "I like structure, planning, and sticking to schedules (Judging)",
         "I prefer flexibility and spontaneity (Perceiving)"
     ]
 )
 
-st.markdown(
-    "<div style='margin-bottom: -25px; font-weight: bold;'>Preferred music tempo:</div>",
-    unsafe_allow_html=True
-)
+st.markdown("<div style='font-size: 16px; font-weight: bold; margin-bottom: -25px;'>Preferred music tempo:</div>", unsafe_allow_html=True)
 tempo = st.radio(
-    label="",
-    options=["Slow/Calm", "Medium", "Fast/Energetic"],
+    "",
+    ["Slow/Calm", "Medium", "Fast/Energetic"],
     index=1
 )
 
