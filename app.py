@@ -111,7 +111,7 @@ if st.button("🎶 Recommend"):
     
 
     st.success(f"""✨ As an {user_mbti}, you're matched with **{predicted_genre}** music! 
-    💃 We think you'll enjoy artists such as {predicted_artist_group}.""")
+    \n 🎤 We think you'll enjoy artists such as {predicted_artist_group}.""")
 else:
     st.info("Click 'Recommend' to get your personalized music suggestion!")
 
