@@ -16,17 +16,7 @@ le_mbti = joblib.load("le_mbti.pkl")
 
 st.markdown("""
 <style>
-/* Only target form elements */
-[data-testid="stForm"] {
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-}
-[data-testid="stForm"] .stSelectbox,
-[data-testid="stForm"] .stRadio,
-[data-testid="stForm"] .stButton {
+.stSelectbox, .stRadio, .stButton {
     margin-bottom: 0 !important;
 }
 </style>
@@ -44,13 +34,7 @@ def determine_mbti(social, info, decision, planning):
     return mbti
 
 genre_groups = [
-    "Classical/Jazz",
-    "Indie",
-    "Lofi/Melody",
-    "Pop",
-    "R&B",
-    "Rap",
-    "Rock"
+    "Classical/Jazz", "Indie", "Lofi/Melody", "Pop", "R&B", "Rap", "Rock"
 ]
 
 artist_groups = [
@@ -65,42 +49,42 @@ artist_groups = [
 
 tempo_map = {'Slow/Calm': 0, 'Medium': 1, 'Fast/Energetic': 2}
 
-with st.form("music_form"):
-    social = st.selectbox(
-        "When it comes to socialising:",
-        [
-            "I enjoy large social gatherings and meeting new people (Extraversion)",
-            "I prefer smaller groups or alone time (Introversion)"
-        ]
-    )
-    info = st.selectbox(
-        "When processing information:",
-        [
-            "I focus on patterns, ideas, and possibilities (Intuition)",
-            "I focus on facts, details, and reality (Sensing)"
-        ]
-    )
-    decision = st.selectbox(
-        "When making decisions:",
-        [
-            "I prioritise logic and objectivity (Thinking)",
-            "I consider emotions and values (Feeling)"
-        ]
-    )
-    planning = st.selectbox(
-        "When planning my day or tasks:",
-        [
-            "I like structure, planning, and sticking to schedules (Judging)",
-            "I prefer flexibility and spontaneity (Perceiving)"
-        ]
-    )
-    tempo = st.radio(
-        "Preferred music tempo:",
-        ["Slow/Calm", "Medium", "Fast/Energetic"],
-        index=1
-    )
+# Inputs (live-updating)
+social = st.selectbox(
+    "When it comes to socialising:",
+    [
+        "I enjoy large social gatherings and meeting new people (Extraversion)",
+        "I prefer smaller groups or alone time (Introversion)"
+    ]
+)
+info = st.selectbox(
+    "When processing information:",
+    [
+        "I focus on patterns, ideas, and possibilities (Intuition)",
+        "I focus on facts, details, and reality (Sensing)"
+    ]
+)
+decision = st.selectbox(
+    "When making decisions:",
+    [
+        "I prioritise logic and objectivity (Thinking)",
+        "I consider emotions and values (Feeling)"
+    ]
+)
+planning = st.selectbox(
+    "When planning my day or tasks:",
+    [
+        "I like structure, planning, and sticking to schedules (Judging)",
+        "I prefer flexibility and spontaneity (Perceiving)"
+    ]
+)
+tempo = st.radio(
+    "Preferred music tempo:",
+    ["Slow/Calm", "Medium", "Fast/Energetic"],
+    index=1
+)
 
-    submit = st.form_submit_button("🎶 Recommend")
+submit = st.button("🎶 Recommend")
 
 if submit:
     user_mbti = determine_mbti(social, info, decision, planning)
