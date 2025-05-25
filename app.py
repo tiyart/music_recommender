@@ -43,7 +43,7 @@ planning = st.selectbox(
 )
 
 st.markdown(
-    "<div style='margin-bottom: -15px; font-weight: bold;'>Preferred music tempo:</div>",
+    "<div style='margin-bottom: -25px; font-weight: bold;'>Preferred music tempo:</div>",
     unsafe_allow_html=True
 )
 tempo = st.radio(
