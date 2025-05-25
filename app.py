@@ -55,7 +55,7 @@ tempo_map = {'Slow/Calm': 0, 'Medium': 1, 'Fast/Energetic': 2}
 social = st.selectbox(
     "When it comes to socialising:",
     [
-        "-",
+        "Select -",
         "I enjoy large social gatherings and meeting new people (Extraversion)",
         "I prefer spending time alone or with a small group of close friends (Introversion)"
     ]
