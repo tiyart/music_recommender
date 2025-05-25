@@ -13,17 +13,7 @@ st.markdown("Answer a few personality questions and we’ll recommend a music ge
 
 st.header("Tell us about yourself")
 
-st.markdown("""
-    <style>
-    .small-heading {
-        font-size: 15px;
-        font-weight: normal;
-        margin-bottom: -10px;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-st.markdown("<div class='small-heading'>When it comes to socialising:</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size:15px; margin-bottom:4px;'>When it comes to socialising:</div>", unsafe_allow_html=True)
 social = st.selectbox(
     "",
     [
@@ -31,7 +21,7 @@ social = st.selectbox(
         "I prefer smaller groups or alone time (Introversion)"
     ]
 )
-st.markdown("<div class='small-heading'>When processing information:</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size:15px; margin-bottom:4px;'>When processing information:</div>", unsafe_allow_html=True)
 info = st.selectbox(
     "",
     [
@@ -39,7 +29,7 @@ info = st.selectbox(
         "I focus on facts, details, and reality (Sensing)"
     ]
 )
-st.markdown("<div class='small-heading'>When making decisions:</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size:15px; margin-bottom:4px;'>When making decisions:</div>", unsafe_allow_html=True)
 decision = st.selectbox(
     "",
     [
@@ -47,7 +37,7 @@ decision = st.selectbox(
         "I consider emotions and values (Feeling)"
     ]
 )
-st.markdown("<div class='small-heading'>When planning my day or tasks:</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size:15px; margin-bottom:4px;'>When planning my day or tasks:</div>", unsafe_allow_html=True)
 planning = st.selectbox(
     "",
     [
@@ -56,7 +46,7 @@ planning = st.selectbox(
     ]
 )
 
-st.markdown("<div class='small-heading'>Preferred music tempo:</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 15px; margin-bottom:4px;'>Preferred music tempo:</div>", unsafe_allow_html=True)
 tempo = st.radio(
     "",
     ["Slow/Calm", "Medium", "Fast/Energetic"],
@@ -107,31 +97,25 @@ if st.button("🎶 Recommend"):
 
     user_mbti = determine_mbti(social, info, decision, planning)
     
-
     mbti_encoded = le_mbti.transform([user_mbti])[0]
     
-
     genre_input = pd.DataFrame([[mbti_encoded, tempo_ordinal]], columns=["MBTI_encoded", "Tempo_Ordinal"])
     genre_pred_encoded = mbti_genre_model.predict(genre_input)[0]
     
-
     if genre_pred_encoded < len(genre_groups):
         predicted_genre = genre_groups[genre_pred_encoded]
     else:
         predicted_genre = "Unknown Genre"  
     
- 
     genre_encoded = le_genre.transform([predicted_genre])[0] if predicted_genre != "Unknown Genre" else 0
     artist_input = pd.DataFrame([[genre_encoded, tempo_ordinal]], columns=["Genre_encoded", "Tempo_Ordinal"])
     artist_pred_encoded = artist_model.predict(artist_input)[0]
     
-
     if artist_pred_encoded < len(artist_groups):
         predicted_artist_group = artist_groups[artist_pred_encoded]
     else:
         predicted_artist_group = "Unknown Artist Group" 
     
-
     st.success(f"""✨ As an **{user_mbti}**, you're matched with **{predicted_genre}** music! 
     \n 🎤 We think you'll enjoy artists such as **{predicted_artist_group}**.""")
 else:
