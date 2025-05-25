@@ -54,7 +54,7 @@ tempo_map = {'Slow/Calm': 0, 'Medium': 1, 'Fast/Energetic': 2}
 social = st.selectbox(
     "When it comes to socialising:",
     [
-        " ",
+        "-",
         "I enjoy large social gatherings and meeting new people (Extraversion)",
         "I prefer spending time alone or with a small group of close friends (Introversion)"
     ]
@@ -62,6 +62,7 @@ social = st.selectbox(
 info = st.selectbox(
     "When processing information:",
     [
+         "-",
         "I focus on patterns, ideas, and possibilities (Intuition)",
         "I trust facts, data, and real experiences (Sensing)"
     ]
@@ -69,6 +70,7 @@ info = st.selectbox(
 decision = st.selectbox(
     "When making decisions:",
     [
+        "-",
         "I prioritise logic and objectivity (Thinking)",
         "I consider emotions and values (Feeling)"
     ]
@@ -76,6 +78,7 @@ decision = st.selectbox(
 planning = st.selectbox(
     "When planning my day or tasks:",
     [
+         "-",
         "I like structure, planning, and sticking to schedules (Judging)",
         "I prefer being spontaneous and flexible (Perceiving)"
     ]
