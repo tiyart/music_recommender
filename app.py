@@ -1,8 +1,12 @@
 import streamlit as st
+st.set_page_config(
+    page_title="Music Genre Recommender",
+    page_icon="🎧",
+    layout="centered",
+)
+
 import pandas as pd
 import joblib
-
-st.set_page_config(page_title="Music Genre Recommender", page_icon="🎧")
 
 artist_model = joblib.load("artist_model.pkl")
 mbti_genre_model = joblib.load("mbti_genre_model.pkl")
