@@ -11,11 +11,11 @@ le_mbti = joblib.load("le_mbti.pkl")
 st.markdown("""
 <style>
 .block-container > div {
-    margin-bottom: 6px;
+    margin-bottom: 0px;
     padding-bottom: 0;
 }
 .stSelectbox, .stRadio, .stButton {
-    margin-bottom: 6px;
+    margin-bottom: 0px;
 }
 </style>
 """, unsafe_allow_html=True)
