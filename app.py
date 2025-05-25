@@ -42,10 +42,14 @@ planning = st.selectbox(
     ]
 )
 
-st.markdown("**Preferred music tempo:**")
+st.markdown(
+    "<div style='margin-bottom: -15px; font-weight: bold;'>Preferred music tempo:</div>",
+    unsafe_allow_html=True
+)
 tempo = st.radio(
-    "",
-    ["Slow/Calm", "Medium", "Fast/Energetic"]
+    label="",
+    options=["Slow/Calm", "Medium", "Fast/Energetic"],
+    index=1
 )
 
 tempo_map = {'Slow/Calm': 0, 'Medium': 1, 'Fast/Energetic': 2}
