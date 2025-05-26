@@ -1,6 +1,6 @@
 import streamlit as st
 st.set_page_config(
-    page_title="Music Genre Recommender",
+    page_title="Music Recommender",
     page_icon="🎧",
     layout="centered",
 )
@@ -22,7 +22,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🎧 Music Genre Recommender")
+st.title("🎧 Music Recommender")
 st.markdown("Answer a few personality questions and we’ll recommend a music genre and some artists you might love!")
 
 st.subheader("Tell us about yourself")
